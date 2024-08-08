@@ -23,6 +23,14 @@ android {
             )
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }
 val dokkaOutputDir = "$buildDir/dokka"
 
@@ -51,9 +59,10 @@ publishing {
     }
     publications {
         register<MavenPublication>("release") {
-            groupId = "co.yml"
-            artifactId = "ycharts"
-            version = "2.1.0"
+            groupId = "com.github.TheoEC" // Altere para o seu grupo
+            artifactId = "YCharts" // O nome do seu artefato
+            version = "v1.0.0" // Altere para corresponder à tag que você criou
+
             afterEvaluate {
                 from(components["release"])
             }
@@ -61,7 +70,7 @@ publishing {
             pom {
                 name.set("YCharts")
                 description.set("YCharts is a light and extensible chart library for Jetpack Compose system.")
-                url.set("https://github.com/yml-org/YCharts")
+                url.set("https://github.com/TheoEC/YCharts") // URL do seu repositório
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")
@@ -71,25 +80,15 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("dkk009")
-                        name.set("Deepak KK")
-                        url.set("https://github.com/dkk009")
-                    }
-                    developer {
-                        id.set("preetham1316")
-                        name.set("Preetham Ivan Dsouza")
-                        url.set("https://github.com/preetham1316")
-                    }
-                    developer {
-                        id.set("kikoso")
-                        name.set("Enrique López Mañas")
-                        url.set("https://github.com/kikoso")
+                        id.set("TheoEC") // Seu ID de desenvolvedor
+                        name.set("Theo EC") // Seu nome
+                        url.set("https://github.com/TheoEC") // Seu perfil no GitHub
                     }
                 }
                 scm {
-                    url.set("https://github.com/yml-org/YCharts")
-                    connection.set("scm:git:git://github.com/yml-org/YCharts.git")
-                    developerConnection.set("scm:git:ssh://git@github.com:yml-org/YCharts.git")
+                    url.set("https://github.com/TheoEC/YCharts")
+                    connection.set("scm:git:git://github.com/TheoEC/YCharts.git")
+                    developerConnection.set("scm:git:ssh://git@github.com:TheoEC/YCharts.git")
                 }
             }
         }
