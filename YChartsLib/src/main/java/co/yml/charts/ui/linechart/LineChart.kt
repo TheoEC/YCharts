@@ -147,7 +147,8 @@ fun LineChart(modifier: Modifier, lineChartData: LineChartData) {
                             }
                             .clip(
                                 RowClip(
-                                    columnWidth, paddingRight
+                                    leftPadding = columnWidth - with(LocalDensity.current) { xAxisData.axisStartPadding.toPx() },
+                                    rightPadding = paddingRight
                                 )
                             ),
                         xStart = columnWidth,
